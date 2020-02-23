@@ -18,7 +18,6 @@ LOG_LEVEL = os.environ.get('LOG_LEVEL', 'INFO')
 def _logger():
     '''
     Setup logger format, level, and handler.
-
     RETURNS: log object
     '''
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -39,7 +38,7 @@ APP = Flask(__name__)
 
 def require_jwt(function):
     """
-    Decorator to check valid jwt is present..
+    Decorator to check valid jwt is present.
     """
     @functools.wraps(function)
     def decorated_function(*args, **kws):
@@ -64,7 +63,7 @@ def health():
 @APP.route('/auth', methods=['POST'])
 def auth():
     """
-    Create JWT token based on email.
+    Create JWT token based on email..
     """
     request_data = request.get_json()
     email = request_data.get('email')
